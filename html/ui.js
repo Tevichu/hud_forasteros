@@ -3,13 +3,13 @@ $(document).ready(function() {
         var data = event.data;
 
         if(event.data.showhud == false){
-            $('.container').fadeIn();
-            $('.container2').fadeOut();
+            $('.container').show();
+            $('.container2').hide();
         }
 
         if(event.data.showhud == true){
-            $('.container2').fadeIn();
-            $('.container').fadeOut();
+            $('.container2').show();
+            $('.container').hide();
         }
 
         // $(".container").css("display", data.show? "none":"block");
