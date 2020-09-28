@@ -36,16 +36,6 @@ $(document).ready(function() {
 
             $('#boxArmor').show(); // HIDE 2ND BAR
             $('#armor').show(); // HIDE 2ND BAR
-            $('.healthnumber').hide();
-
-            if (data.healthtext == true) {
-                $('.healthnumber2').show();
-                $('.healthnumber2').text(event.data.health);
-            }
-
-            if (data.armortext == true) {
-                $('.armornumber').show();
-                $('.armornumber').text(event.data.armor);
             }
         } 
     else
@@ -63,17 +53,6 @@ $(document).ready(function() {
 
             $('#heal').show(); // HIDE 2ND BAR
             $('#boxHeal').show(); // HIDE 2ND BAR
-
-
-            $('.armornumber').hide();
-            $('.healthnumber2').hide();
-
-            if (data.healthtext == true) {
-                $('.healthnumber').show();
-                $('.healthnumber').text(event.data.health);
-                if (data.health < 0 ) {
-                    $('.healthnumber').text(data.deadtext);
-                }
             }
 
 
