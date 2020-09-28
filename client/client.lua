@@ -30,12 +30,13 @@ Citizen.CreateThread(function()
     end
 end)
 
-RegisterNetEvent('esx_status:onTick')
-AddEventHandler('esx_status:onTick', function(Status)
+RegisterNetEvent('tevi_hud:update')
+AddEventHandler('tevi_hud:update', function(Status)
     status = Status
     SendNUIMessage({
         action = "updateStatus",
         st = Status,
     })
 end)
+
 
