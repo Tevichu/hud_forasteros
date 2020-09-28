@@ -1,3 +1,3 @@
-# Tevi Hud [REMAKE]
+# Tevi Hud 
 
 Preview: https://streamable.com/wfukz2
