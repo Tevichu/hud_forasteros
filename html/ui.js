@@ -36,8 +36,7 @@ $(document).ready(function() {
 
             $('#boxArmor').show(); // HIDE 2ND BAR
             $('#armor').show(); // HIDE 2ND BAR
-            }
-        } 
+        }
     else
         if (data.armor == 0 ) {
             $("#boxHeal3").css("width", data.health + "%"); // SHOW NORMAL BAR
@@ -56,7 +55,7 @@ $(document).ready(function() {
             }
 
 
-        }
+        
     })
 })
 
