@@ -1,34 +1,37 @@
+--
+-- Vars
+--
+
 local status = nil
+
+--
+-- Threads
+--
+
 Citizen.CreateThread(function()
     while true do
-        Citizen.Wait(100)
-        
+        Citizen.Wait(500)
+        local ped = PlayerPedId()
+        local pid = PlayerId()
+        if IsPedInAnyVehicle(ped) then
+            SendNUIMessage({showhud = true})
+            DisplayRadar(true)
+        else
+            SendNUIMessage({showhud = false})
+            DisplayRadar(false)
+        end
         SendNUIMessage({
-            health = GetEntityHealth(GetPlayerPed(-1)) - 100,
-            armor = GetPedArmour(GetPlayerPed(-1)),
-            stamina = 100 - GetPlayerSprintStaminaRemaining(PlayerId()),
+            health = GetEntityHealth(ped) - 100,
+            armor = GetPedArmour(ped),
+            stamina = 100 - GetPlayerSprintStaminaRemaining(pid),
             st = status,
         })
     end
 end)
 
-Citizen.CreateThread(function()
-    Citizen.Wait(100)
-
-    while true do
-        local sleepThread = 500
-
-        if not IsPedInAnyVehicle(PlayerPedId()) then
-            DisplayRadar(false)
-            SendNUIMessage({showhud = false})
-        elseif IsPedInAnyVehicle(PlayerPedId()) then
-            SendNUIMessage({showhud = true})
-            DisplayRadar(true)
-        end
-
-        Citizen.Wait(sleepThread)
-    end
-end)
+--
+-- Events
+--
 
 RegisterNetEvent('tevi_hud:update')
 AddEventHandler('tevi_hud:update', function(Status)
@@ -38,5 +41,3 @@ AddEventHandler('tevi_hud:update', function(Status)
         st = Status,
     })
 end)
-
-
